@@ -42,7 +42,6 @@ namespace WindowsFormsBoats
             boat.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBoats.Width, pictureBoxBoats.Height);
             Draw();
         }
-
         private void buttonCreateSail_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -75,11 +74,6 @@ namespace WindowsFormsBoats
                     break;
             }
             Draw();
-        }
-
-        private void pictureBoxBoats_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

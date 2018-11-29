@@ -112,17 +112,7 @@
             this.buttonCreatSail.Text = "Создать лодку";
             this.buttonCreatSail.UseVisualStyleBackColor = true;
             this.buttonCreatSail.Click += new System.EventHandler(this.buttonCreateSail_Click);
-            // 
-            // FormBoat
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.buttonCreatSail);
-            this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonDown);
-            this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonCreat);
             this.Controls.Add(this.pictureBoxBoats);
             this.Name = "FormBoat";
