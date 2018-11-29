@@ -11,7 +11,7 @@ namespace WindowsFormsBoats
 {
     public partial class FormBoat : Form
     {
-        private Boat boat;
+        private IBoat boat;
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -42,6 +42,13 @@ namespace WindowsFormsBoats
             boat.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBoats.Width, pictureBoxBoats.Height);
             Draw();
         }
+        private void buttonCreateSail_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            boat = new Sail (rnd.Next(100, 300), rnd.Next(1000, 2000), Color.BurlyWood);
+            boat.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBoats.Width, pictureBoxBoats.Height);
+            Draw();
+        }
         /// <summary>
         /// Обработка нажатия кнопок управления
         /// </summary>
@@ -68,6 +75,5 @@ namespace WindowsFormsBoats
             }
             Draw();
         }
-
     }
 }

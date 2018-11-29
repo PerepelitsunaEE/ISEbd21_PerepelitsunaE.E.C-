@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBoat));
             this.pictureBoxBoats = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCreat = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
+            this.buttonCreatSail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBoats)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,16 +47,17 @@
             this.pictureBoxBoats.Size = new System.Drawing.Size(884, 461);
             this.pictureBoxBoats.TabIndex = 0;
             this.pictureBoxBoats.TabStop = false;
+            this.pictureBoxBoats.Click += new System.EventHandler(this.pictureBoxBoats_Click);
             // 
-            // button1
+            // buttonCreat
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Создать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreat.Location = new System.Drawing.Point(12, 12);
+            this.buttonCreat.Name = "buttonCreat";
+            this.buttonCreat.Size = new System.Drawing.Size(129, 23);
+            this.buttonCreat.TabIndex = 1;
+            this.buttonCreat.Text = "Создать парусник";
+            this.buttonCreat.UseVisualStyleBackColor = true;
+            this.buttonCreat.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // buttonLeft
             // 
@@ -101,16 +103,17 @@
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // FormBoat
+            // buttonCreatSail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 461);
-            this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonDown);
-            this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.button1);
+            this.buttonCreatSail.Location = new System.Drawing.Point(12, 41);
+            this.buttonCreatSail.Name = "buttonCreatSail";
+            this.buttonCreatSail.Size = new System.Drawing.Size(129, 24);
+            this.buttonCreatSail.TabIndex = 6;
+            this.buttonCreatSail.Text = "Создать лодку";
+            this.buttonCreatSail.UseVisualStyleBackColor = true;
+            this.buttonCreatSail.Click += new System.EventHandler(this.buttonCreateSail_Click);
+            this.Controls.Add(this.buttonCreatSail);
+            this.Controls.Add(this.buttonCreat);
             this.Controls.Add(this.pictureBoxBoats);
             this.Name = "FormBoat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -123,11 +126,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxBoats;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCreat;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.Button buttonCreatSail;
     }
 }
 
