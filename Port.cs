@@ -17,7 +17,7 @@ namespace WindowsFormsBoats
         /// </summary>
         private Dictionary<int, T> _places;
         /// <summary>
-        /// Максимальное количество мест на парковке
+        /// Максимальное количество мест в гавани
         /// </summary>
         private int _maxCount;
         /// <summary>
@@ -94,7 +94,7 @@ namespace WindowsFormsBoats
         /// <summary>
         /// Метод проверки заполнености гавани (ячейки массива)
         /// </summary>
-        /// <param name="index">Номер парковочного места (порядковый номер в массиве)</param>
+        /// <param name="index">Номер места (порядковый номер в массиве)</param>
         /// <returns></returns>
         private bool CheckFreePlace(int index)
         {
@@ -114,13 +114,13 @@ namespace WindowsFormsBoats
             }
         }
         /// <summary>
-        /// Метод отрисовки разметки парковочных мест
+        /// Метод отрисовки разметки мест
         /// </summary>
         /// <param name="g"></param>
         private void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
-            //границы праковки
+            //границы гавани
             g.DrawRectangle(pen, 0, 0, (_maxCount / 5) * _placeSizeWidth, 480);
             for (int i = 0; i < _maxCount / 5; i++)
             {//отрисовываем, по 5 мест на линии
