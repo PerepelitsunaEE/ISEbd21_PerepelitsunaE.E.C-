@@ -1,3 +1,4 @@
+
 ﻿namespace WindowsFormsBoats
 {
     partial class FormBoat
@@ -144,4 +145,3 @@
         private System.Windows.Forms.Button buttonCreatSail;
     }
 }
-
