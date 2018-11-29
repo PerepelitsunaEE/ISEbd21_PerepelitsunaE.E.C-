@@ -123,12 +123,5 @@ namespace WindowsFormsBoats
                 }
             }
         }
-
-        private void FormPort_Load(object sender, EventArgs e)
-        {
-
-        }
     }
-  
-    
 }
