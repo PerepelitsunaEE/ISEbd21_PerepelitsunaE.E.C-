@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsBoats
+namespace WindowsFormsBoats
 {
     public enum Direction
     {
