@@ -77,10 +77,5 @@ namespace WindowsFormsBoats
             }
             Draw();
         }
-
-        private void pictureBoxBoats_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
