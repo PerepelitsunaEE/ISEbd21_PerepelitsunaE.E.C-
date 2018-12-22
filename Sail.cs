@@ -65,6 +65,5 @@ namespace WindowsFormsBoats
             g.DrawLine(pen, _startPosX + 70, _startPosY + 60, _startPosX + 90, _startPosY + 40);
 
         }
-
     }
 }

@@ -51,5 +51,12 @@ namespace WindowsFormsBoats
             }
             base.DrawBoat(g);
         }
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
     }
 }

@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPort));
             this.pictureBoxPort = new System.Windows.Forms.PictureBox();
-            this.buttonPortSail = new System.Windows.Forms.Button();
-            this.buttonPortBoat = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxTakeBoat = new System.Windows.Forms.PictureBox();
             this.buttonTake = new System.Windows.Forms.Button();
@@ -39,6 +37,7 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonAddForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBoat)).BeginInit();
@@ -53,26 +52,6 @@
             this.pictureBoxPort.TabIndex = 0;
             this.pictureBoxPort.TabStop = false;
             this.pictureBoxPort.Click += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
-            // 
-            // buttonPortSail
-            // 
-            this.buttonPortSail.Location = new System.Drawing.Point(806, 104);
-            this.buttonPortSail.Name = "buttonPortSail";
-            this.buttonPortSail.Size = new System.Drawing.Size(150, 23);
-            this.buttonPortSail.TabIndex = 1;
-            this.buttonPortSail.Text = "Пришвартовать лодку";
-            this.buttonPortSail.UseVisualStyleBackColor = true;
-            this.buttonPortSail.Click += new System.EventHandler(this.buttonPortSail_Click);
-            // 
-            // buttonPortBoat
-            // 
-            this.buttonPortBoat.Location = new System.Drawing.Point(806, 133);
-            this.buttonPortBoat.Name = "buttonPortBoat";
-            this.buttonPortBoat.Size = new System.Drawing.Size(150, 23);
-            this.buttonPortBoat.TabIndex = 2;
-            this.buttonPortBoat.Text = "Пришвартовать парусник";
-            this.buttonPortBoat.UseVisualStyleBackColor = true;
-            this.buttonPortBoat.Click += new System.EventHandler(this.buttonPortBoat_Click);
             // 
             // groupBox1
             // 
@@ -139,15 +118,24 @@
             this.listBoxLevels.TabIndex = 4;
             this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
+            // buttonAddForm
+            // 
+            this.buttonAddForm.Location = new System.Drawing.Point(807, 115);
+            this.buttonAddForm.Name = "buttonAddForm";
+            this.buttonAddForm.Size = new System.Drawing.Size(150, 23);
+            this.buttonAddForm.TabIndex = 5;
+            this.buttonAddForm.Text = "Добавить";
+            this.buttonAddForm.UseVisualStyleBackColor = true;
+            this.buttonAddForm.Click += new System.EventHandler(this.buttonAddForm_Click);
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 461);
+            this.Controls.Add(this.buttonAddForm);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonPortBoat);
-            this.Controls.Add(this.buttonPortSail);
             this.Controls.Add(this.pictureBoxPort);
             this.Name = "FormPort";
             this.Text = "Гавань";
@@ -162,8 +150,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxPort;
-        private System.Windows.Forms.Button buttonPortSail;
-        private System.Windows.Forms.Button buttonPortBoat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxTakeBoat;
         private System.Windows.Forms.Button buttonTake;
@@ -171,5 +157,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Button buttonAddForm;
     }
 }

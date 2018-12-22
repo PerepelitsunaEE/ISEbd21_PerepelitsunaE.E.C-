@@ -10,6 +10,12 @@ namespace WindowsFormsBoats
         /// Объект от класса многоуровневого порта
         /// </summary>
         MultiLevelPort parking;
+
+        /// <summary>
+        /// Форма для добавления
+        /// </summary>
+        FormSailConfig form;
+
         /// <summary>
         /// Количество уровней-портов
         /// </summary>
@@ -26,6 +32,7 @@ namespace WindowsFormsBoats
             }
             listBoxLevels.SelectedIndex = 0;
         }
+
         /// <summary>
         /// Метод отрисовки гавани
         /// </summary>
@@ -41,55 +48,11 @@ namespace WindowsFormsBoats
         }
 
         /// <summary>
-        /// Обработка нажатия кнопки "Пришвартовать лодку"
+        /// Обработка нажатия кнопки "Забрать"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonPortSail_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var car = new Sail(100, 1000, dialog.Color);
-                    int place = parking[listBoxLevels.SelectedIndex] + car;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Обработка нажатия кнопки "Пришвартовать парусник"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonPortBoat_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var car = new Boat(100, 1000, dialog.Color, dialogDop.Color, true, true);
-                        int place = parking[listBoxLevels.SelectedIndex] + car;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
-
+        
         private void buttonTake_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -124,5 +87,36 @@ namespace WindowsFormsBoats
         {
             Draw();
         }
-    }
+
+        /// <summary>
+        /// Обработка нажатия кнопки "Добавить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAddForm_Click(object sender, EventArgs e)
+        {
+            form = new FormSailConfig();
+            form.AddEvent(AddSail);
+            form.Show();
+        }
+        /// <summary>
+        /// Метод добавления машины
+        /// </summary>
+        /// <param name="car"></param>
+        private void AddSail(IBoat sail)
+        {
+            if (sail != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxLevels.SelectedIndex] + sail;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Лодку не удалось пришвартовать");
+                }
+            }
+        }
+    }   
 }

@@ -57,6 +57,12 @@
     <Compile Include="FormPort.Designer.cs">
       <DependentUpon>FormPort.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSailConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSailConfig.Designer.cs">
+      <DependentUpon>FormSailConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBoat.cs" />
     <Compile Include="MultiLevelPort.cs" />
     <Compile Include="Port.cs" />
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPort.resx">
       <DependentUpon>FormPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSailConfig.resx">
+      <DependentUpon>FormSailConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
