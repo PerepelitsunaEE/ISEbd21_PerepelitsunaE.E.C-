@@ -26,7 +26,6 @@ namespace WindowsFormsBoats
             }
             listBoxLevels.SelectedIndex = 0;
         }
-
         /// <summary>
         /// Метод отрисовки гавани
         /// </summary>
@@ -126,6 +125,4 @@ namespace WindowsFormsBoats
             Draw();
         }
     }
-  
-    
 }
