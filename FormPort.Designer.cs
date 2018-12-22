@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBoat)).BeginInit();
@@ -51,10 +52,11 @@
             this.pictureBoxPort.Size = new System.Drawing.Size(800, 465);
             this.pictureBoxPort.TabIndex = 0;
             this.pictureBoxPort.TabStop = false;
+            this.pictureBoxPort.Click += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
             // buttonPortSail
             // 
-            this.buttonPortSail.Location = new System.Drawing.Point(806, 3);
+            this.buttonPortSail.Location = new System.Drawing.Point(806, 104);
             this.buttonPortSail.Name = "buttonPortSail";
             this.buttonPortSail.Size = new System.Drawing.Size(150, 23);
             this.buttonPortSail.TabIndex = 1;
@@ -64,7 +66,7 @@
             // 
             // buttonPortBoat
             // 
-            this.buttonPortBoat.Location = new System.Drawing.Point(806, 32);
+            this.buttonPortBoat.Location = new System.Drawing.Point(806, 133);
             this.buttonPortBoat.Name = "buttonPortBoat";
             this.buttonPortBoat.Size = new System.Drawing.Size(150, 23);
             this.buttonPortBoat.TabIndex = 2;
@@ -128,11 +130,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Забрать лодку";
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(807, 3);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(150, 95);
+            this.listBoxLevels.TabIndex = 4;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 461);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonPortBoat);
             this.Controls.Add(this.buttonPortSail);
@@ -158,5 +170,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Drawing;
 
 namespace WindowsFormsBoats
 {
@@ -28,6 +24,7 @@ namespace WindowsFormsBoats
         /// <param name="dopColor">Дополнительный цвет (парус)</param>
         /// <param name="RightSail">Признак наличия правого паруса</param>
         /// <param name="LeftSail">Признак наличия левого паруса</param>
+        /// 
 
         public Boat (int maxSpeed, float weight, Color mainColor, Color dopColor, bool rightSail, bool leftSail) :
                     base (maxSpeed, weight, mainColor)
