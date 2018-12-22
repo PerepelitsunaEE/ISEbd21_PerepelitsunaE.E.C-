@@ -14,7 +14,7 @@ namespace WindowsFormsBoats
         protected float _startPosX;
 
         /// <summary>
-        /// Правая кооридната отрисовки парусника 
+        /// Правая кооридната отрисовки парусника
         /// </summary>
         protected float _startPosY;
 

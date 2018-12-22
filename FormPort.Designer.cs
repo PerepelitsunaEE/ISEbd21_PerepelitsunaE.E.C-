@@ -50,9 +50,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBoat)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // pictureBoxPort
-            // 
+            //
             this.pictureBoxPort.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxPort.BackgroundImage")));
             this.pictureBoxPort.Location = new System.Drawing.Point(0, 3);
             this.pictureBoxPort.Name = "pictureBoxPort";
@@ -60,9 +60,9 @@
             this.pictureBoxPort.TabIndex = 0;
             this.pictureBoxPort.TabStop = false;
             this.pictureBoxPort.Click += new System.EventHandler(this.ListBoxLevels_SelectedIndexChanged);
-            // 
+            //
             // groupBox1
-            // 
+            //
             this.groupBox1.Controls.Add(this.pictureBoxTakeBoat);
             this.groupBox1.Controls.Add(this.buttonTake);
             this.groupBox1.Controls.Add(this.label2);
@@ -73,17 +73,17 @@
             this.groupBox1.Size = new System.Drawing.Size(150, 176);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            // 
+            //
             // pictureBoxTakeBoat
-            // 
+            //
             this.pictureBoxTakeBoat.Location = new System.Drawing.Point(9, 92);
             this.pictureBoxTakeBoat.Name = "pictureBoxTakeBoat";
             this.pictureBoxTakeBoat.Size = new System.Drawing.Size(134, 71);
             this.pictureBoxTakeBoat.TabIndex = 4;
             this.pictureBoxTakeBoat.TabStop = false;
-            // 
+            //
             // buttonTake
-            // 
+            //
             this.buttonTake.Location = new System.Drawing.Point(35, 58);
             this.buttonTake.Name = "buttonTake";
             this.buttonTake.Size = new System.Drawing.Size(75, 23);
@@ -91,43 +91,43 @@
             this.buttonTake.Text = "Забрать";
             this.buttonTake.UseVisualStyleBackColor = true;
             this.buttonTake.Click += new System.EventHandler(this.ButtonTake_Click);
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(32, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Место";
-            // 
+            //
             // maskedTextBox1
-            // 
+            //
             this.maskedTextBox1.Location = new System.Drawing.Point(120, 39);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(24, 20);
             this.maskedTextBox1.TabIndex = 1;
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(32, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Забрать лодку";
-            // 
+            //
             // listBoxLevels
-            // 
+            //
             this.listBoxLevels.FormattingEnabled = true;
             this.listBoxLevels.Location = new System.Drawing.Point(806, 45);
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(150, 95);
             this.listBoxLevels.TabIndex = 4;
             this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.ListBoxLevels_SelectedIndexChanged);
-            // 
+            //
             // buttonAddForm
-            // 
+            //
             this.buttonAddForm.Location = new System.Drawing.Point(806, 146);
             this.buttonAddForm.Name = "buttonAddForm";
             this.buttonAddForm.Size = new System.Drawing.Size(150, 23);
@@ -135,9 +135,9 @@
             this.buttonAddForm.Text = "Добавить";
             this.buttonAddForm.UseVisualStyleBackColor = true;
             this.buttonAddForm.Click += new System.EventHandler(this.ButtonAddForm_Click);
-            // 
+            //
             // menuStrip1
-            // 
+            //
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -145,41 +145,41 @@
             this.menuStrip1.Size = new System.Drawing.Size(968, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
-            // 
+            //
             // файлToolStripMenuItem
-            // 
+            //
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сохранитьToolStripMenuItem,
             this.загрузитьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
-            // 
+            //
             // сохранитьToolStripMenuItem
-            // 
+            //
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.СохранитьToolStripMenuItem_Click);
-            // 
+            //
             // загрузитьToolStripMenuItem
-            // 
+            //
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
             this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.ЗагрузитьToolStripMenuItem_Click);
-            // 
+            //
             // openFileDialog1
-            // 
+            //
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "txt file | *.txt";
-            // 
+            //
             // saveFileDialog1
-            // 
+            //
             this.saveFileDialog1.Filter = "txt file | *.txt";
-            // 
+            //
             // buttonSort
-            // 
+            //
             this.buttonSort.Location = new System.Drawing.Point(806, 175);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(150, 23);
@@ -187,9 +187,9 @@
             this.buttonSort.Text = "Сортировать";
             this.buttonSort.UseVisualStyleBackColor = true;
             this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click_1);
-            // 
+            //
             // FormPort
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 461);

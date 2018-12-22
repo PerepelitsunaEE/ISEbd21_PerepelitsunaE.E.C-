@@ -23,7 +23,7 @@
         #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
+        /// Требуемый метод для поддержки конструктора — не изменяйте
         /// содержимое этого метода с помощью редактора кода.
         /// </summary>
         private void InitializeComponent()
@@ -38,9 +38,9 @@
             this.buttonCreatSail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBoats)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // pictureBoxBoats
-            // 
+            //
             this.pictureBoxBoats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxBoats.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxBoats.Name = "pictureBoxBoats";
@@ -48,9 +48,9 @@
             this.pictureBoxBoats.TabIndex = 0;
             this.pictureBoxBoats.TabStop = false;
             this.pictureBoxBoats.Click += new System.EventHandler(this.pictureBoxBoats_Click);
-            // 
+            //
             // buttonCreat
-            // 
+            //
             this.buttonCreat.Location = new System.Drawing.Point(12, 12);
             this.buttonCreat.Name = "buttonCreat";
             this.buttonCreat.Size = new System.Drawing.Size(129, 23);
@@ -58,9 +58,9 @@
             this.buttonCreat.Text = "Создать парусник";
             this.buttonCreat.UseVisualStyleBackColor = true;
             this.buttonCreat.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
+            //
             // buttonLeft
-            // 
+            //
             this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonLeft.BackgroundImage")));
             this.buttonLeft.Location = new System.Drawing.Point(782, 431);
@@ -69,9 +69,9 @@
             this.buttonLeft.TabIndex = 2;
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
+            //
             // buttonDown
-            // 
+            //
             this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDown.BackgroundImage")));
             this.buttonDown.Location = new System.Drawing.Point(818, 431);
@@ -80,9 +80,9 @@
             this.buttonDown.TabIndex = 3;
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
+            //
             // buttonUp
-            // 
+            //
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
             this.buttonUp.Location = new System.Drawing.Point(818, 395);
@@ -91,9 +91,9 @@
             this.buttonUp.TabIndex = 4;
             this.buttonUp.UseVisualStyleBackColor = true;
             this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
+            //
             // buttonRight
-            // 
+            //
             this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRight.BackgroundImage")));
             this.buttonRight.Location = new System.Drawing.Point(854, 431);
@@ -102,9 +102,9 @@
             this.buttonRight.TabIndex = 5;
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
+            //
             // buttonCreatSail
-            // 
+            //
             this.buttonCreatSail.Location = new System.Drawing.Point(12, 41);
             this.buttonCreatSail.Name = "buttonCreatSail";
             this.buttonCreatSail.Size = new System.Drawing.Size(129, 24);
@@ -112,9 +112,9 @@
             this.buttonCreatSail.Text = "Создать лодку";
             this.buttonCreatSail.UseVisualStyleBackColor = true;
             this.buttonCreatSail.Click += new System.EventHandler(this.buttonCreateSail_Click);
-            // 
+            //
             // FormBoat
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
@@ -144,4 +144,3 @@
         private System.Windows.Forms.Button buttonCreatSail;
     }
 }
-

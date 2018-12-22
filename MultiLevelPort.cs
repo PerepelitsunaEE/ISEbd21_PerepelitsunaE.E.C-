@@ -80,7 +80,7 @@ namespace WindowsFormsBoats
                         WriteToFile("Level" + Environment.NewLine, fs);
                         foreach (var sail in level)
                         {
-                            //Записываем тип 
+                            //Записываем тип
                             if (sail.GetType().Name == "Sail")
                             {
                                 WriteToFile(level.GetKey + ":Sail:", fs);
@@ -92,7 +92,7 @@ namespace WindowsFormsBoats
                             //Записываемые параметры
                             WriteToFile(sail + Environment.NewLine, fs);
                         }
-                          
+
                     }
                 }
             }
@@ -174,7 +174,7 @@ namespace WindowsFormsBoats
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = sail;
             }
-            
+
         }
         /// <summary>
         /// Сортировка уровней

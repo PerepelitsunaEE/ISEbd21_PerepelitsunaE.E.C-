@@ -63,7 +63,7 @@ namespace WindowsFormsBoats
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        
+
         private void ButtonTake_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -147,12 +147,7 @@ namespace WindowsFormsBoats
             }
         }
 
-        private void FormPort_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void СохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -197,6 +192,6 @@ namespace WindowsFormsBoats
             Draw();
             logger.Info("Сортировка уровней");
         }
-    } 
-    
+    }
+
 }

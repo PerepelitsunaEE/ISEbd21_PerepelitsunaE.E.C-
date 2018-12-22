@@ -13,7 +13,7 @@ namespace WindowsFormsBoats
         /// Ширина отрисовки парусника
         /// </summary>
         protected const int boatHeight = 60;
-        
+
         /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>

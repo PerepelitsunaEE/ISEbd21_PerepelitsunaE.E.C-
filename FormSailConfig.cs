@@ -182,12 +182,5 @@ namespace WindowsFormsBoats
             eventAddSail?.Invoke(sail);
             Close();
         }
-
-
-        private void FormSailConfig_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

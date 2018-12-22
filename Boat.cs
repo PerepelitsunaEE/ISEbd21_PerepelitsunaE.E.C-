@@ -7,7 +7,7 @@ using System.Text;
 namespace WindowsFormsBoats
 {
     public class Boat : Sail, IComparable<Boat>, IEquatable<Boat>
-    {        
+    {
         /// Дополнительный цвет
         /// </summary>
     public Color DopColor { private set; get; }
@@ -28,7 +28,7 @@ namespace WindowsFormsBoats
         /// <param name="dopColor">Дополнительный цвет (парус)</param>
         /// <param name="RightSail">Признак наличия правого паруса</param>
         /// <param name="LeftSail">Признак наличия левого паруса</param>
-        /// 
+        ///
 
         public Boat (int maxSpeed, float weight, Color mainColor, Color dopColor, bool rightSail, bool leftSail) :
                     base (maxSpeed, weight, mainColor)
@@ -56,7 +56,7 @@ namespace WindowsFormsBoats
         {
             Pen pen = new Pen(MainColor, 3);
             Pen pen1 = new Pen(DopColor, 2);
-            
+
             if (RightSail)
             {
                 g.DrawLine(pen1, _startPosX + 45, _startPosY + 40, _startPosX + 45, _startPosY);
