@@ -17,7 +17,7 @@ namespace WindowsFormsBoats
         /// </summary>
         private Dictionary<int, T> _places;
         /// <summary>
-        /// Максимальное количество мест 
+        /// Максимальное количество мест
         /// </summary>
         private int _maxCount;
         /// <summary>

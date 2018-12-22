@@ -83,7 +83,7 @@ namespace WindowsFormsBoats
                             try
                             {
                                 var sail = level[i];
-                                //Записываем тип 
+                                //Записываем тип
                                 if (sail.GetType().Name == "Sail")
                                 {
                                     WriteToFile(i + ":Sail:", fs);
@@ -96,7 +96,7 @@ namespace WindowsFormsBoats
                                 WriteToFile(sail + Environment.NewLine, fs);
                             }
                             finally { }
-                            
+
                         }
                     }
                 }
