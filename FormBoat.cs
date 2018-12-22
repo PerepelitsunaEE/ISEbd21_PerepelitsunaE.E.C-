@@ -12,9 +12,6 @@ namespace WindowsFormsBoats
     public partial class FormBoat : Form
     {
         private IBoat boat;
-        /// <summary>
-        /// Конструктор
-        /// </summary>
 
         public FormBoat()
         {
@@ -42,6 +39,7 @@ namespace WindowsFormsBoats
             boat.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBoats.Width, pictureBoxBoats.Height);
             Draw();
         }
+
         private void buttonCreateSail_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();

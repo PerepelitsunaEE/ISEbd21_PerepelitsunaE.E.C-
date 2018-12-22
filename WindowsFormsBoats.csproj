@@ -51,13 +51,23 @@
     <Compile Include="FormBoat.Designer.cs">
       <DependentUpon>FormBoat.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPort.Designer.cs">
+      <DependentUpon>FormPort.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBoat.cs" />
+    <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sail.cs" />
     <Compile Include="SimpleBoat.cs" />
     <EmbeddedResource Include="FormBoat.resx">
       <DependentUpon>FormBoat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPort.resx">
+      <DependentUpon>FormPort.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
