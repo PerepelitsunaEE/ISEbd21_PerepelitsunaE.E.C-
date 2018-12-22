@@ -1,9 +1,10 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsBoats
 {
     public class Boat : Sail
-    {        
+    {
         /// Дополнительный цвет
         /// </summary>
         public Color DopColor { private set; get; }
@@ -24,7 +25,7 @@ namespace WindowsFormsBoats
         /// <param name="dopColor">Дополнительный цвет (парус)</param>
         /// <param name="RightSail">Признак наличия правого паруса</param>
         /// <param name="LeftSail">Признак наличия левого паруса</param>
-        /// 
+        ///
 
         public Boat (int maxSpeed, float weight, Color mainColor, Color dopColor, bool rightSail, bool leftSail) :
                     base (maxSpeed, weight, mainColor)
@@ -33,12 +34,25 @@ namespace WindowsFormsBoats
             RightSail = rightSail;
             LeftSail = leftSail;
         }
-        
+
+        public Boat(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                LeftSail = Convert.ToBoolean(strs[4]);
+                RightSail = Convert.ToBoolean(strs[5]);
+            }
+        }
         public override void DrawBoat(Graphics g)
         {
             Pen pen = new Pen(MainColor, 3);
             Pen pen1 = new Pen(DopColor, 2);
-            
+
             if (RightSail)
             {
                 g.DrawLine(pen1, _startPosX + 45, _startPosY + 40, _startPosX + 45, _startPosY);
@@ -57,6 +71,11 @@ namespace WindowsFormsBoats
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + LeftSail + ";" + RightSail;
         }
     }
 }
