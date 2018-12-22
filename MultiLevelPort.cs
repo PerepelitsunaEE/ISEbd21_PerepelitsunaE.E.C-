@@ -78,26 +78,21 @@ namespace WindowsFormsBoats
                     {
                         //Начинаем уровень
                         WriteToFile("Level" + Environment.NewLine, fs);
-                        for (int i = 0; i < countPlaces; i++)
+                        foreach (var sail in level)
                         {
-                            try
+                            //Записываем тип
+                            if (sail.GetType().Name == "Sail")
                             {
-                                var sail = level[i];
-                                //Записываем тип
-                                if (sail.GetType().Name == "Sail")
-                                {
-                                    WriteToFile(i + ":Sail:", fs);
-                                }
-                                if (sail.GetType().Name == "Boat")
-                                {
-                                    WriteToFile(i + ":Boat:", fs);
-                                }
-                                //Записываемые параметры
-                                WriteToFile(sail + Environment.NewLine, fs);
+                                WriteToFile(level.GetKey + ":Sail:", fs);
                             }
-                            finally { }
-
+                            if (sail.GetType().Name == "Boat")
+                            {
+                                WriteToFile(level.GetKey + ":Boat:", fs);
+                            }
+                            //Записываемые параметры
+                            WriteToFile(sail + Environment.NewLine, fs);
                         }
+
                     }
                 }
             }
@@ -113,7 +108,7 @@ namespace WindowsFormsBoats
             stream.Write(info, 0, info.Length);
         }
         /// <summary>
-        /// Загрузка нформации из файла
+        /// Загрузка информации из файла
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -179,6 +174,14 @@ namespace WindowsFormsBoats
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = sail;
             }
+
+        }
+        /// <summary>
+        /// Сортировка уровней
+        /// </summary>
+        public void Sort()
+        {
+            parkingStages.Sort();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Collections;
 
 namespace WindowsFormsBoats
 {
@@ -10,7 +11,8 @@ namespace WindowsFormsBoats
     /// Параметризованны класс для хранения набора объектов от интерфейса IBoat
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Port <T> where T : class, IBoat
+    public class Port <T> : IEnumerator<T>, IEnumerable<T>, IComparable<Port<T>>
+        where T : class, IBoat
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -37,6 +39,19 @@ namespace WindowsFormsBoats
         /// </summary>
         private int _placeSizeHeight = 80;
         /// <summary>
+        /// Текущий элемент для вывода через IEnumerator (будет обращаться по своему индексу к ключу словаря, по которму будет возвращаться запись)
+        /// </summary>
+        private int _currentIndex;
+        /// <summary>
+        /// Получить порядковое место на парковке
+        /// </summary>
+        public int GetKey
+        {
+            get
+            {
+                return _places.Keys.ToList()[_currentIndex];
+            }
+        }
         /// Конструктор
         /// </summary>
         /// <param name="sizes">Количество мест в гавани</param>
@@ -46,6 +61,7 @@ namespace WindowsFormsBoats
         {
             _maxCount = sizes;
             _places = new Dictionary<int, T>();
+            _currentIndex = -1;
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
         }
@@ -70,6 +86,20 @@ namespace WindowsFormsBoats
                     p._places[i].SetPosition(5 + i / 5 * p._placeSizeWidth + 5,
                     i % 5 * p._placeSizeHeight + 15, p.PictureWidth, p.PictureHeight);
                     return i;
+                }
+                else if (sail.GetType() == p._places[i].GetType())
+                {
+                    if (sail is Boat)
+                    {
+                        if ((sail as Boat).Equals(p._places[i]))
+                        {
+                            throw new PortAlreadyHaveException();
+                        }
+                    }
+                    else if ((sail as Sail).Equals(p._places[i]))
+                    {
+                        throw new PortAlreadyHaveException();
+                    }
                 }
             }
             return -1;
@@ -107,10 +137,9 @@ namespace WindowsFormsBoats
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            var keys = _places.Keys.ToList();
-            for (int i = 0; i < keys.Count; i++)
+            foreach (var sail in _places)
             {
-                _places[keys[i]].DrawBoat(g);
+                sail.Value.DrawBoat(g);
             }
         }
         /// <summary>
@@ -160,6 +189,111 @@ namespace WindowsFormsBoats
                     throw new PortOccupiedPlaceException(ind);
                 }
             }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для получения текущего элемента
+        /// </summary>
+        public T Current
+        {
+            get
+            {
+                return _places[_places.Keys.ToList()[_currentIndex]];
+            }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для получения текущего элемента
+        /// </summary>
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator, вызываемый при удалении объекта
+        /// </summary>
+        public void Dispose()
+        {
+            _places.Clear();
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для перехода к следующему элементу или началу коллекции
+        /// </summary>
+        /// <returns></returns>
+        public bool MoveNext()
+        {
+            if (_currentIndex + 1 >= _places.Count)
+            {
+                Reset();
+                return false;
+            }
+            _currentIndex++;
+            return true;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для сброса и возврата к началу коллекции
+        /// </summary>
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        /// <summary>
+        /// Метод интерфейса IComparable
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(Port<T> other)
+        {
+            if (_places.Count > other._places.Count)
+            {
+                return -1;
+            }
+            else if (_places.Count < other._places.Count)
+            {
+                return 1;
+            }
+            else if (_places.Count > 0)
+            {
+                var thisKeys = _places.Keys.ToList();
+                var otherKeys = other._places.Keys.ToList();
+                for (int i = 0; i < _places.Count; ++i)
+                {
+                    if (_places[thisKeys[i]] is Sail && other._places[thisKeys[i]] is Boat)
+                    {
+                        return 1;
+                    }
+                    if (_places[thisKeys[i]] is Boat && other._places[thisKeys[i]] is Sail)
+                    {
+                        return -1;
+                    }
+                    if (_places[thisKeys[i]] is Sail && other._places[thisKeys[i]] is Sail)
+                    {
+                        return (_places[thisKeys[i]] is Sail).CompareTo(other._places[thisKeys[i]] is Sail);
+                    }
+                    if (_places[thisKeys[i]] is Boat && other._places[thisKeys[i]] is Boat)
+                    {
+                        return (_places[thisKeys[i]] is Boat).CompareTo(other._places[thisKeys[i]] is Boat);
+                    }
+                }
+            }
+            return 0;
         }
 
     }

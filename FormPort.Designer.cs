@@ -44,6 +44,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBoat)).BeginInit();
@@ -58,7 +59,7 @@
             this.pictureBoxPort.Size = new System.Drawing.Size(800, 465);
             this.pictureBoxPort.TabIndex = 0;
             this.pictureBoxPort.TabStop = false;
-            this.pictureBoxPort.Click += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            this.pictureBoxPort.Click += new System.EventHandler(this.ListBoxLevels_SelectedIndexChanged);
             //
             // groupBox1
             //
@@ -89,7 +90,7 @@
             this.buttonTake.TabIndex = 3;
             this.buttonTake.Text = "Забрать";
             this.buttonTake.UseVisualStyleBackColor = true;
-            this.buttonTake.Click += new System.EventHandler(this.buttonTake_Click);
+            this.buttonTake.Click += new System.EventHandler(this.ButtonTake_Click);
             //
             // label2
             //
@@ -123,7 +124,7 @@
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(150, 95);
             this.listBoxLevels.TabIndex = 4;
-            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.ListBoxLevels_SelectedIndexChanged);
             //
             // buttonAddForm
             //
@@ -133,7 +134,7 @@
             this.buttonAddForm.TabIndex = 5;
             this.buttonAddForm.Text = "Добавить";
             this.buttonAddForm.UseVisualStyleBackColor = true;
-            this.buttonAddForm.Click += new System.EventHandler(this.buttonAddForm_Click);
+            this.buttonAddForm.Click += new System.EventHandler(this.ButtonAddForm_Click);
             //
             // menuStrip1
             //
@@ -157,16 +158,16 @@
             // сохранитьToolStripMenuItem
             //
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.СохранитьToolStripMenuItem_Click);
             //
             // загрузитьToolStripMenuItem
             //
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
-            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.ЗагрузитьToolStripMenuItem_Click);
             //
             // openFileDialog1
             //
@@ -177,11 +178,22 @@
             //
             this.saveFileDialog1.Filter = "txt file | *.txt";
             //
+            // buttonSort
+            //
+            this.buttonSort.Location = new System.Drawing.Point(806, 175);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(150, 23);
+            this.buttonSort.TabIndex = 7;
+            this.buttonSort.Text = "Сортировать";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click_1);
+            //
             // FormPort
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 461);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBoxPort);
             this.Controls.Add(this.buttonAddForm);
@@ -218,5 +230,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button buttonSort;
     }
 }

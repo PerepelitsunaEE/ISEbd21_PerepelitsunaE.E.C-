@@ -6,11 +6,11 @@ using System.Text;
 
 namespace WindowsFormsBoats
 {
-    public class Boat : Sail
+    public class Boat : Sail, IComparable<Boat>, IEquatable<Boat>
     {
         /// Дополнительный цвет
         /// </summary>
-        public Color DopColor { private set; get; }
+    public Color DopColor { private set; get; }
         /// <summary>
         /// Признак наличия правого паруса
         /// </summary>
@@ -80,6 +80,87 @@ namespace WindowsFormsBoats
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + RightSail + ";" + LeftSail;
+        }
+        /// <summary>
+        /// Метод интерфейса IComparable для класса Boat
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(Boat other)
+        {
+            var res = (this is Sail).CompareTo(other is Sail);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (RightSail != other.RightSail)
+            {
+                return RightSail.CompareTo(other.RightSail);
+            }
+            if (LeftSail != other.LeftSail)
+            {
+                return LeftSail.CompareTo(other.LeftSail);
+            }
+            return 0;
+        }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SportCar
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Boat other)
+        {
+            var res = (this as Sail).Equals(other as Sail);
+            if (!res)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (RightSail != other.RightSail)
+            {
+                return false;
+            }
+            if (LeftSail != other.LeftSail)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Boat sailObj = obj as Boat;
+            if (sailObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(sailObj);
+            }
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

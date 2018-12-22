@@ -64,7 +64,7 @@ namespace WindowsFormsBoats
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void buttonTake_Click(object sender, EventArgs e)
+        private void ButtonTake_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
@@ -101,7 +101,7 @@ namespace WindowsFormsBoats
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }
@@ -111,7 +111,7 @@ namespace WindowsFormsBoats
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonAddForm_Click(object sender, EventArgs e)
+        private void ButtonAddForm_Click(object sender, EventArgs e)
         {
             form = new FormSailConfig();
             form.AddEvent(AddSail);
@@ -135,6 +135,10 @@ namespace WindowsFormsBoats
                 catch (PortOverflowException ex)
                 {
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (PortAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -160,7 +164,7 @@ namespace WindowsFormsBoats
             }
         }
 
-        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ЗагрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -181,7 +185,13 @@ namespace WindowsFormsBoats
                 Draw();
             }
         }
-    }
 
+        private void buttonSort_Click_1(object sender, EventArgs e)
+        {
+            parking.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
+        }
+    }
 
 }

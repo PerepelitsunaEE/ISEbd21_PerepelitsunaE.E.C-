@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WindowsFormsBoats
 {
-    public class Sail : SimpleBoat
+    public class Sail : SimpleBoat, IComparable<Sail>, IEquatable<Sail>
     {
         protected const int boatWidth = 100;
         /// <summary>
@@ -86,6 +86,84 @@ namespace WindowsFormsBoats
         {
             return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
-
+        /// <summary>
+        /// Метод интерфейса IComparable для класса Sail
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(Sail other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return MaxSpeed.CompareTo(other.MaxSpeed);
+            }
+            if (Weight != other.Weight)
+            {
+                return Weight.CompareTo(other.Weight);
+            }
+            if (MainColor != other.MainColor)
+            {
+                MainColor.Name.CompareTo(other.MainColor.Name);
+            }
+            return 0;
+        }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса Car
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Sail other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Sail sailObj = obj as Sail;
+            if (sailObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(sailObj);
+            }
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

@@ -73,6 +73,7 @@
     <Compile Include="IBoat.cs" />
     <Compile Include="MultiLevelPort.cs" />
     <Compile Include="Port.cs" />
+    <Compile Include="PortAlreadyHaveException.cs" />
     <Compile Include="PortNotFoundException.cs" />
     <Compile Include="PortOccupiedPlaceException.cs" />
     <Compile Include="PortOverflowException.cs" />

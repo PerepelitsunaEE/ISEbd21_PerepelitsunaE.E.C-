@@ -249,6 +249,7 @@
             this.Controls.Add(this.groupBoxType);
             this.Name = "FormSailConfig";
             this.Text = "FormSailConfig";
+            this.Load += new System.EventHandler(this.FormSailConfig_Load);
             this.groupBoxType.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConfig)).EndInit();
             this.panelConfig.ResumeLayout(false);
