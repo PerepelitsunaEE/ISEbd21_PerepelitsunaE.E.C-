@@ -119,7 +119,7 @@
             // listBoxLevels
             //
             this.listBoxLevels.FormattingEnabled = true;
-            this.listBoxLevels.Location = new System.Drawing.Point(807, 3);
+            this.listBoxLevels.Location = new System.Drawing.Point(806, 45);
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(150, 95);
             this.listBoxLevels.TabIndex = 4;
@@ -127,7 +127,7 @@
             //
             // buttonAddForm
             //
-            this.buttonAddForm.Location = new System.Drawing.Point(807, 115);
+            this.buttonAddForm.Location = new System.Drawing.Point(806, 146);
             this.buttonAddForm.Name = "buttonAddForm";
             this.buttonAddForm.Size = new System.Drawing.Size(150, 23);
             this.buttonAddForm.TabIndex = 5;
@@ -182,14 +182,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 461);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBoxPort);
             this.Controls.Add(this.buttonAddForm);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pictureBoxPort);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPort";
             this.Text = "Гавань";
+            this.Load += new System.EventHandler(this.FormPort_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

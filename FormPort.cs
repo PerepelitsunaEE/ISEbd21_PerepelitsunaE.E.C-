@@ -1,5 +1,11 @@
-﻿using System;
+﻿using NLog;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace WindowsFormsBoats
@@ -20,10 +26,15 @@ namespace WindowsFormsBoats
         /// Количество уровней-портов
         /// </summary>
         private const int countLevel = 5;
+        /// <summary>
+        /// Логгер
+        /// </summary>
+        private Logger logger;
 
         public FormPort()
         {
             InitializeComponent();
+            logger = LogManager.GetCurrentClassLogger();
             parking = new MultiLevelPort(countLevel, pictureBoxPort.Width, pictureBoxPort.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
@@ -59,22 +70,29 @@ namespace WindowsFormsBoats
             {
                 if (maskedTextBox1.Text != "")
                 {
-                    var boat = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox1.Text);
-                    if (boat != null)
+                    try
                     {
+                        var boat = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox1.Text);
                         Bitmap bmp = new Bitmap(pictureBoxTakeBoat.Width,
                         pictureBoxTakeBoat.Height);
                         Graphics gr = Graphics.FromImage(bmp);
                         boat.SetPosition(5, 5, pictureBoxTakeBoat.Width, pictureBoxTakeBoat.Height);
                         boat.DrawBoat(gr);
                         pictureBoxTakeBoat.Image = bmp;
+                        logger.Info("Изъята лодка " + boat.ToString() + " с места " + maskedTextBox1.Text);
+
+                        Draw();
                     }
-                    else
+                    catch (PortNotFoundException ex)
                     {
+                        MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Bitmap bmp = new Bitmap(pictureBoxTakeBoat.Width, pictureBoxTakeBoat.Height);
                         pictureBoxTakeBoat.Image = bmp;
                     }
-                    Draw();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -107,14 +125,20 @@ namespace WindowsFormsBoats
         {
             if (sail != null && listBoxLevels.SelectedIndex > -1)
             {
-                int place = parking[listBoxLevels.SelectedIndex] + sail;
-                if (place > -1)
+                try
                 {
+                    int place = parking[listBoxLevels.SelectedIndex] + sail;
+                    logger.Info("Добавлена лодка " + sail.ToString() + " на место " + place);
                     Draw();
                 }
-                else
+
+                catch (PortOverflowException ex)
                 {
-                    MessageBox.Show("Лодку не удалось пришвартовать");
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -123,13 +147,15 @@ namespace WindowsFormsBoats
         {
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.SaveData(saveFileDialog1.FileName))
+                try
                 {
+                    parking.SaveData(saveFileDialog1.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -138,13 +164,19 @@ namespace WindowsFormsBoats
         {
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.LoadData(openFileDialog1.FileName))
+                try
                 {
+                    parking.LoadData(openFileDialog1.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
                 }
-                else
+                catch (PortOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Draw();
             }

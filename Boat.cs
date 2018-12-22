@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Text;
 
 namespace WindowsFormsBoats
 {
@@ -38,16 +41,17 @@ namespace WindowsFormsBoats
         public Boat(string info) : base(info)
         {
             string[] strs = info.Split(';');
-            if (strs.Length == 7)
+            if (strs.Length == 6)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
                 MainColor = Color.FromName(strs[2]);
                 DopColor = Color.FromName(strs[3]);
-                LeftSail = Convert.ToBoolean(strs[4]);
-                RightSail = Convert.ToBoolean(strs[5]);
+                RightSail = Convert.ToBoolean(strs[4]);
+                LeftSail = Convert.ToBoolean(strs[5]);
             }
         }
+
         public override void DrawBoat(Graphics g)
         {
             Pen pen = new Pen(MainColor, 3);
@@ -75,7 +79,7 @@ namespace WindowsFormsBoats
 
         public override string ToString()
         {
-            return base.ToString() + ";" + DopColor.Name + ";" + LeftSail + ";" + RightSail;
+            return base.ToString() + ";" + DopColor.Name + ";" + RightSail + ";" + LeftSail;
         }
     }
 }

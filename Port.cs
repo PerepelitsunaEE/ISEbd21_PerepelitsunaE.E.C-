@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Drawing;
 
 namespace WindowsFormsBoats
@@ -15,7 +17,7 @@ namespace WindowsFormsBoats
         /// </summary>
         private Dictionary<int, T> _places;
         /// <summary>
-        /// Максимальное количество мест на парковке
+        /// Максимальное количество мест
         /// </summary>
         private int _maxCount;
         /// <summary>
@@ -58,7 +60,7 @@ namespace WindowsFormsBoats
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new PortOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -87,7 +89,7 @@ namespace WindowsFormsBoats
                 p._places.Remove(index);
                 return sail;
             }
-            return null;
+            throw new PortNotFoundException(index);
         }
         /// <summary>
         /// Метод проверки заполнености гавани (ячейки массива)
@@ -144,7 +146,7 @@ namespace WindowsFormsBoats
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new PortNotFoundException(ind);
             }
             set
             {
@@ -153,7 +155,12 @@ namespace WindowsFormsBoats
                     _places.Add(ind, value);
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5 * _placeSizeHeight + 15, PictureWidth, PictureHeight);
                 }
+                else
+                {
+                    throw new PortOccupiedPlaceException(ind);
+                }
             }
         }
+
     }
 }

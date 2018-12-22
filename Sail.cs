@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Text;
 
 namespace WindowsFormsBoats
 {
@@ -22,10 +25,7 @@ namespace WindowsFormsBoats
             Weight = weight;
             MainColor = mainColor;
         }
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="info">Информация по объекту</param>
+
         public Sail(string info)
         {
             string[] strs = info.Split(';');
@@ -36,6 +36,7 @@ namespace WindowsFormsBoats
                 MainColor = Color.FromName(strs[2]);
             }
         }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -85,5 +86,6 @@ namespace WindowsFormsBoats
         {
             return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
+
     }
 }

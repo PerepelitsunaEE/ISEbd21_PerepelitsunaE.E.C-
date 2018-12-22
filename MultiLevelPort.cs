@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace WindowsFormsBoats
@@ -16,6 +17,12 @@ namespace WindowsFormsBoats
         /// </summary>
         private const int countPlaces = 20;
         /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="countStages">Количество уровенй порта</param>
+        /// <param name="pictureWidth"></param>
+        /// <param name="pictureHeight"></param>
+        /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
         private int pictureWidth;
@@ -23,15 +30,11 @@ namespace WindowsFormsBoats
         /// Высота окна отрисовки
         /// </summary>
         private int pictureHeight;
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="countStages">Количество уровенй порта</param>
-        /// <param name="pictureWidth"></param>
-        /// <param name="pictureHeight"></param>
         public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight)
         {
             parkingStages = new List<Port<IBoat>>();
+            this.pictureWidth = pictureWidth;
+            this.pictureHeight = pictureHeight;
             for (int i = 0; i < countStages; ++i)
             {
                 parkingStages.Add(new Port<IBoat>(countPlaces, pictureWidth, pictureHeight));
@@ -55,11 +58,11 @@ namespace WindowsFormsBoats
         }
 
         /// <summary>
-        /// Сохранение информации по автомобилям на парковках в файл
+        /// Сохранение информации в файл
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -77,11 +80,10 @@ namespace WindowsFormsBoats
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            var sail = level[i];
-                            if (sail != null)
+                            try
                             {
-                                //если место не пустое
-                                //Записываем тип лодки
+                                var sail = level[i];
+                                //Записываем тип
                                 if (sail.GetType().Name == "Sail")
                                 {
                                     WriteToFile(i + ":Sail:", fs);
@@ -93,11 +95,12 @@ namespace WindowsFormsBoats
                                 //Записываемые параметры
                                 WriteToFile(sail + Environment.NewLine, fs);
                             }
+                            finally { }
+
                         }
                     }
                 }
             }
-            return true;
         }
         /// <summary>
         /// Метод записи информации в файл
@@ -110,15 +113,15 @@ namespace WindowsFormsBoats
             stream.Write(info, 0, info.Length);
         }
         /// <summary>
-        /// Загрузка нформации по автомобилям на парковках из файла
+        /// Загрузка нформации из файла
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             string bufferTextFromFile = "";
             using (FileStream fs = new FileStream(filename, FileMode.Open))
@@ -148,7 +151,7 @@ namespace WindowsFormsBoats
             else
             {
                 //если нет такой записи, то это не те данные
-                return false;
+                throw new Exception("Неверный формат файла");
             }
             int counter = -1;
             IBoat sail = null;
@@ -176,7 +179,6 @@ namespace WindowsFormsBoats
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = sail;
             }
-            return true;
         }
     }
 }

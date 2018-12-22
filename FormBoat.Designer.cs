@@ -47,6 +47,7 @@
             this.pictureBoxBoats.Size = new System.Drawing.Size(884, 461);
             this.pictureBoxBoats.TabIndex = 0;
             this.pictureBoxBoats.TabStop = false;
+            this.pictureBoxBoats.Click += new System.EventHandler(this.pictureBoxBoats_Click);
             //
             // buttonCreat
             //

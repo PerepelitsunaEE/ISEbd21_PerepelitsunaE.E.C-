@@ -51,9 +51,9 @@
             this.panelConfig.SuspendLayout();
             this.groupBoxColors.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // groupBoxType
-            // 
+            //
             this.groupBoxType.Controls.Add(this.labelBoat);
             this.groupBoxType.Controls.Add(this.labelSail);
             this.groupBoxType.Location = new System.Drawing.Point(11, 12);
@@ -62,9 +62,9 @@
             this.groupBoxType.TabIndex = 0;
             this.groupBoxType.TabStop = false;
             this.groupBoxType.Text = "Тип лодки";
-            // 
+            //
             // labelBoat
-            // 
+            //
             this.labelBoat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelBoat.Location = new System.Drawing.Point(6, 73);
             this.labelBoat.Name = "labelBoat";
@@ -72,9 +72,9 @@
             this.labelBoat.TabIndex = 1;
             this.labelBoat.Text = "Парусник";
             this.labelBoat.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelBoat_MouseDown);
-            // 
+            //
             // labelSail
-            // 
+            //
             this.labelSail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelSail.Location = new System.Drawing.Point(6, 31);
             this.labelSail.Name = "labelSail";
@@ -82,18 +82,18 @@
             this.labelSail.TabIndex = 0;
             this.labelSail.Text = "Обычная лодка";
             this.labelSail.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelSail_MouseDown);
-            // 
+            //
             // pictureBoxConfig
-            // 
+            //
             this.pictureBoxConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxConfig.Location = new System.Drawing.Point(19, 13);
             this.pictureBoxConfig.Name = "pictureBoxConfig";
             this.pictureBoxConfig.Size = new System.Drawing.Size(160, 83);
             this.pictureBoxConfig.TabIndex = 1;
             this.pictureBoxConfig.TabStop = false;
-            // 
+            //
             // panelConfig
-            // 
+            //
             this.panelConfig.AllowDrop = true;
             this.panelConfig.Controls.Add(this.labelDopColor);
             this.panelConfig.Controls.Add(this.labelMainColor);
@@ -104,9 +104,9 @@
             this.panelConfig.TabIndex = 2;
             this.panelConfig.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelConfig_DragDrop);
             this.panelConfig.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelConfig_DragEnter);
-            // 
+            //
             // labelDopColor
-            // 
+            //
             this.labelDopColor.AllowDrop = true;
             this.labelDopColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDopColor.Location = new System.Drawing.Point(19, 154);
@@ -116,9 +116,9 @@
             this.labelDopColor.Text = "Доп. цвет";
             this.labelDopColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelDopColor_DragDrop);
             this.labelDopColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
-            // 
+            //
             // labelMainColor
-            // 
+            //
             this.labelMainColor.AllowDrop = true;
             this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelMainColor.Location = new System.Drawing.Point(19, 111);
@@ -128,9 +128,9 @@
             this.labelMainColor.Text = "Основной цвет";
             this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
             this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
-            // 
+            //
             // buttonAdd
-            // 
+            //
             this.buttonAdd.Location = new System.Drawing.Point(12, 148);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(106, 23);
@@ -138,18 +138,18 @@
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonOk_Click);
-            // 
+            //
             // buttonCancel
-            // 
+            //
             this.buttonCancel.Location = new System.Drawing.Point(11, 177);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(106, 23);
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
+            //
             // groupBoxColors
-            // 
+            //
             this.groupBoxColors.Controls.Add(this.panelBlue);
             this.groupBoxColors.Controls.Add(this.panelYellow);
             this.groupBoxColors.Controls.Add(this.panelWhite);
@@ -164,81 +164,81 @@
             this.groupBoxColors.TabIndex = 5;
             this.groupBoxColors.TabStop = false;
             this.groupBoxColors.Text = "Цвета";
-            // 
+            //
             // panelBlue
-            // 
+            //
             this.panelBlue.BackColor = System.Drawing.Color.Blue;
             this.panelBlue.Location = new System.Drawing.Point(74, 125);
             this.panelBlue.Name = "panelBlue";
             this.panelBlue.Size = new System.Drawing.Size(30, 30);
             this.panelBlue.TabIndex = 1;
             this.panelBlue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // panelYellow
-            // 
+            //
             this.panelYellow.BackColor = System.Drawing.Color.Yellow;
             this.panelYellow.Location = new System.Drawing.Point(74, 91);
             this.panelYellow.Name = "panelYellow";
             this.panelYellow.Size = new System.Drawing.Size(30, 30);
             this.panelYellow.TabIndex = 1;
             this.panelYellow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // panelWhite
-            // 
+            //
             this.panelWhite.BackColor = System.Drawing.Color.White;
             this.panelWhite.Location = new System.Drawing.Point(74, 55);
             this.panelWhite.Name = "panelWhite";
             this.panelWhite.Size = new System.Drawing.Size(30, 30);
             this.panelWhite.TabIndex = 1;
             this.panelWhite.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // panelRed
-            // 
+            //
             this.panelRed.BackColor = System.Drawing.Color.Red;
             this.panelRed.Location = new System.Drawing.Point(74, 19);
             this.panelRed.Name = "panelRed";
             this.panelRed.Size = new System.Drawing.Size(30, 30);
             this.panelRed.TabIndex = 1;
             this.panelRed.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // panelGreen
-            // 
+            //
             this.panelGreen.BackColor = System.Drawing.Color.Green;
             this.panelGreen.Location = new System.Drawing.Point(6, 127);
             this.panelGreen.Name = "panelGreen";
             this.panelGreen.Size = new System.Drawing.Size(30, 30);
             this.panelGreen.TabIndex = 1;
             this.panelGreen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // panelGray
-            // 
+            //
             this.panelGray.BackColor = System.Drawing.Color.Gray;
             this.panelGray.Location = new System.Drawing.Point(6, 91);
             this.panelGray.Name = "panelGray";
             this.panelGray.Size = new System.Drawing.Size(30, 30);
             this.panelGray.TabIndex = 1;
             this.panelGray.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // panelGold
-            // 
+            //
             this.panelGold.BackColor = System.Drawing.Color.Gold;
             this.panelGold.Location = new System.Drawing.Point(6, 55);
             this.panelGold.Name = "panelGold";
             this.panelGold.Size = new System.Drawing.Size(30, 30);
             this.panelGold.TabIndex = 1;
             this.panelGold.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // panelBlack
-            // 
+            //
             this.panelBlack.BackColor = System.Drawing.Color.Black;
             this.panelBlack.Location = new System.Drawing.Point(6, 19);
             this.panelBlack.Name = "panelBlack";
             this.panelBlack.Size = new System.Drawing.Size(30, 30);
             this.panelBlack.TabIndex = 0;
             this.panelBlack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
-            // 
+            //
             // FormSailConfig
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 227);
